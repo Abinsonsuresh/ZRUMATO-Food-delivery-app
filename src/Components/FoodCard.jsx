@@ -1,7 +1,23 @@
 import React, { useState } from 'react'
-import {data} from '../data/data.js'
+import { data} from '../data/data.js'
 const FoodCard = () => {
-    const [foods , setFoods] = useState(data)
+    const [foods , setFoods] = useState(data);
+    const FoodFilter =(Oncategory)=>{
+        setFoods(
+            data.filter((food)=>{
+                return food.category === Oncategory
+            })
+        )
+    } 
+
+
+    const PriceFilter =(OnPrice)=>{
+        setFoods(
+            data.filter((food)=>{
+                return food.price === OnPrice
+            })
+        )
+    } 
   return (
     <div className='max-w-[1640px] m-auto px-4 py-12'>
         <div className='flex justify-center items-center'>
@@ -10,24 +26,24 @@ const FoodCard = () => {
 
         <div className='FILTER ROW flex flex-col lg:flex-row justify-between'>
             <div>
-                <p>Filter type</p>
+                <p className='py-4'>Filter type</p>
                 <div className='flex justify-start flex-wrap gap-3'>
-                <button>All</button>
-                <button>Burgers</button>
-                <button>Pizza</button>
-                <button>Salads</button>
-                <button>Chicken</button>
+                <button onClick={()=> setFoods(data)}>All</button>
+                <button onClick={()=> FoodFilter('burger')}>Burgers</button>
+                <button onClick={()=> FoodFilter('pizza')}>Pizza</button>
+                <button onClick={()=> FoodFilter('salad')}>Salads</button>
+                <button onClick={()=> FoodFilter('chicken')}>Chicken</button>
                 </div>
 
             </div>
 
             <div >
-                <p>Filter price</p>
-                <div className='flex justify-start flex-wrap gap-3'>
-                <button>$</button>
-                <button>$$</button>
-                <button>$$$</button>
-                <button>$$$$</button>
+                <p className='py-4'>Filter price</p>
+                <div className='flex justify-start flex-wrap gap-3 '>
+                <button  onClick={()=> PriceFilter('$')}>$</button>
+                <button onClick={()=> PriceFilter('$$')}>$$</button>
+                <button onClick={()=> PriceFilter('$$$')}>$$$</button>
+                <button onClick={()=> PriceFilter('$$$$')}>$$$$</button>
 
                 </div>
 
