@@ -15,7 +15,7 @@ const Navbar = () => {
                 <div className='flex items-center'>
 
                     <h1 className='text-2xl lg:text-4xl font-bold px-2'>
-                        Best Eats
+                        ZRumato
                     </h1>
                     <div className='hidden lg:flex items-center bg-gray-300 rounded-full p-1 text-sm cursor-pointer ' onClick={()=> setService(!service)}>
                         <p className={service ? ' text-black rounded-full p-2 ' : 'bg-black text-white rounded-full p-2 ' }>Delivery</p>
